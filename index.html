@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daniela Moirano</title>
+<meta name="description" content="Daniela Moirano is a consumer and social psychology researcher at the Technical University of Munich studying sustainable and reduced consumption, food choice, and behaviour change using experimental methods.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf8f3; --surface:#ffffff; --ink:#1f2a24; --muted:#5b665f;
+    --line:#e3e0d6; --green:#2f5741; --green-soft:#e6eee7; --accent:#b5683c;
+    --serif:"Source Serif 4", Georgia, serif;
+    --sans:"Inter", system-ui, -apple-system, Segoe UI, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth; scroll-padding-top:72px}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:16.5px; line-height:1.65}
+  a{color:var(--green); text-underline-offset:3px}
+  a:hover{color:var(--accent)}
+  img{max-width:100%}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 24px}
+
+  header{position:sticky; top:0; z-index:10; background:rgba(250,248,243,.94); backdrop-filter:blur(6px); border-bottom:1px solid var(--line)}
+  .bar{display:flex; align-items:center; justify-content:space-between; gap:16px; height:64px}
+  .brand{font-family:var(--serif); font-weight:700; font-size:1.25rem; color:var(--ink); text-decoration:none; white-space:nowrap}
+  nav ul{list-style:none; display:flex; gap:20px; margin:0; padding:0}
+  nav a{color:var(--muted); text-decoration:none; font-size:.92rem; font-weight:500}
+  nav a:hover{color:var(--green)}
+  .menu-btn{display:none; background:none; border:1px solid var(--line); border-radius:8px; padding:6px 10px; font:inherit; color:var(--ink)}
+
+  .hero{display:grid; grid-template-columns:260px 1fr; gap:48px; align-items:center; padding:64px 0 48px}
+  .photo{width:260px; height:325px; border-radius:14px; object-fit:cover; object-position:center 20%; display:block; background:var(--green-soft)}
+  .eyebrow{font-size:.82rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); font-weight:600; margin:0 0 10px}
+  h1{font-family:var(--serif); font-size:2.7rem; line-height:1.15; margin:0 0 6px}
+  .role{color:var(--muted); margin:0 0 20px; font-size:1.05rem}
+  .lead{font-size:1.08rem; margin:0 0 20px}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 22px; padding:0; list-style:none}
+  .tags li{background:var(--green-soft); color:var(--green); border-radius:999px; padding:4px 12px; font-size:.85rem; font-weight:500}
+  .links{display:flex; flex-wrap:wrap; gap:10px}
+  .btn{display:inline-block; padding:9px 16px; border-radius:8px; border:1px solid var(--green); color:var(--green); text-decoration:none; font-weight:600; font-size:.9rem}
+  .btn.primary{background:var(--green); color:#fff}
+  .btn:hover{background:var(--accent); border-color:var(--accent); color:#fff}
+
+  section{padding:56px 0; border-top:1px solid var(--line)}
+  h2{font-family:var(--serif); font-size:1.85rem; margin:0 0 8px}
+  .sub{color:var(--muted); margin:0 0 32px; max-width:720px}
+  h3{font-family:var(--serif); font-size:1.2rem; margin:0 0 8px; line-height:1.3}
+  .grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px}
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:24px}
+  .card p{margin:0 0 10px}
+  .card .meta{font-size:.86rem; color:var(--muted); margin:0}
+  .card .num{font-family:var(--serif); color:var(--accent); font-weight:700; font-size:.95rem; display:block; margin-bottom:6px}
+
+  .skills{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
+  .skills ul{margin:0; padding-left:18px}
+  .skills li{margin-bottom:4px}
+
+  .pubs{list-style:none; padding:0; margin:0}
+  .pubs li{padding:14px 0; border-bottom:1px dashed var(--line)}
+  .pubs .status{display:inline-block; font-size:.74rem; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin-right:6px}
+  .pubs .talk{color:var(--muted); font-size:.92rem}
+  h3.group{font-family:var(--sans); font-size:.85rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin:30px 0 4px}
+
+  .timeline{list-style:none; padding:0; margin:0}
+  .timeline li{display:grid; grid-template-columns:150px 1fr; gap:20px; padding:14px 0; border-bottom:1px solid var(--line)}
+  .timeline .when{color:var(--muted); font-size:.92rem; font-variant-numeric:tabular-nums}
+  .timeline strong{display:block}
+  .timeline .note{color:var(--muted); font-size:.92rem; display:block}
+
+  .outreach{display:grid; grid-template-columns:1.1fr 1fr; gap:32px; align-items:center}
+  .gallery{display:grid; grid-template-columns:1fr; gap:12px; max-width:380px; justify-self:center}
+  .gallery img{width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:12px; display:block}
+  blockquote{margin:0 0 16px; padding-left:16px; border-left:3px solid var(--accent); font-family:var(--serif); font-size:1.15rem}
+
+  .contact{display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start}
+  .contact ul{list-style:none; padding:0; margin:0}
+  .contact li{padding:8px 0; border-bottom:1px solid var(--line)}
+  .contact span{display:inline-block; width:130px; color:var(--muted); font-size:.9rem}
+
+  footer{padding:32px 0 48px; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line)}
+
+  @media (max-width:880px){
+    nav ul{display:none; position:absolute; top:64px; left:0; right:0; flex-direction:column; gap:0; background:var(--bg); border-bottom:1px solid var(--line); padding:8px 24px}
+    nav ul.open{display:flex}
+    nav li a{display:block; padding:10px 0}
+    .menu-btn{display:block}
+    .hero{grid-template-columns:1fr; gap:28px; padding-top:40px}
+    .photo{width:180px; height:225px}
+    h1{font-size:2.1rem}
+    .grid,.skills,.contact,.outreach{grid-template-columns:1fr}
+    .timeline li{grid-template-columns:1fr; gap:2px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top">Daniela Moirano</a>
+    <nav>
+      <button class="menu-btn" aria-label="Open menu" onclick="document.getElementById('nav').classList.toggle('open')">Menu</button>
+      <ul id="nav" onclick="this.classList.remove('open')">
+        <li><a href="#research">Research</a></li>
+        <li><a href="#expertise">Methods</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#outreach">Outreach</a></li>
+        <li><a href="#experience">CV</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top" class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <img class="photo" src="assets/photo.jpg" alt="Daniela Moirano speaking at Soapbox Science Munich">
+    <div>
+      <p class="eyebrow">Consumer &amp; Social Psychology · Sustainability</p>
+      <h1>Daniela Moirano</h1>
+      <p class="role">PhD Candidate &amp; Research Associate, Chair of Sport and Health Management,<br>Technical University of Munich (TUM)</p>
+      <p class="lead">I study the psychological and contextual drivers of environmentally responsible and reduced consumption — why people consume, and how they can be encouraged to consume <em>less</em> and more sustainably. My work focuses on food: sustainable and healthy diets, meat reduction and alternative proteins, tested with experiments, surveys, choice analysis and in-depth interviews.</p>
+      <ul class="tags">
+        <li>Sustainable consumption</li>
+        <li>Reduced consumption</li>
+        <li>Sustainable &amp; healthy diets</li>
+        <li>Alternative proteins</li>
+        <li>Social norms &amp; social comparison</li>
+        <li>Experimental methods</li>
+      </ul>
+      <div class="links">
+        <a class="btn primary" href="assets/CV_Daniela_Moirano.pdf">Download CV</a>
+        <a class="btn" href="https://scholar.google.de/citations?hl=de&amp;user=YEidWJoAAAAJ">Google Scholar</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <h2>Research</h2>
+    <p class="sub">My dissertation, <em>Explaining the Adoption of Sustainable Consumption Practices</em>, comprises three empirical studies conducted in Germany, Australia and the United Kingdom. Looking ahead, I want to move from stated intentions to observed, real-world behaviour — particularly in the food domain.</p>
+
+    <div class="grid">
+      <article class="card">
+        <span class="num">01</span>
+        <h3>Sustainable and healthy diets</h3>
+        <p>What drives people to adopt diets that are good for both the planet and their health? Extending the Comprehensive Action Determination Model, I compare the roles of environmental concern, social and personal norms, perceived consumer effectiveness, self-efficacy and health consciousness among German consumers.</p>
+        <p class="meta">Survey research · Structural equation modelling · <a href="https://doi.org/10.1016/j.foodqual.2025.105526">Food Quality and Preference (2025)</a></p>
+      </article>
+
+      <article class="card">
+        <span class="num">02</span>
+        <h3>Blended meat &amp; alternative proteins</h3>
+        <p>As a visiting researcher with the Low Harm Hedonism Initiative at the University of Queensland, I studied how omnivores perceive blended meat products (part meat, part plants) through in-depth interviews. Follow-up work tests menu-label disclosure experimentally and in a tasting study with UQ's FoodLab — building on my master's research on plant-based, insect-based and cultured meat.</p>
+        <p class="meta">Qualitative interviews · Online &amp; tasting experiments · Australia</p>
+      </article>
+
+      <article class="card">
+        <span class="num">03</span>
+        <h3>Reduced consumption &amp; upward social comparison</h3>
+        <p>When people compare themselves to someone who consumes less, are they more willing to refrain from purchases? I test this experimentally, examining green consumption values and temperance character strengths as moderators — including in the context of Christmas gift-giving in the UK.</p>
+        <p class="meta">Experiments · Moderation &amp; mediation · Social comparison theory</p>
+      </article>
+
+      <article class="card">
+        <span class="num">04</span>
+        <h3>Food, wellbeing &amp; mental health</h3>
+        <p><em>Resilient by Recipe</em> (with Karina Konieczny) explores whether a dietary lunch intervention can support entrepreneurs' mental health, combining founder interviews with wearable-based physiological measurement. The intervention study is planned for 2027.</p>
+        <p class="meta">Field intervention · Wearables · Validated psychological scales</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- EXPERTISE -->
+  <section id="expertise">
+    <h2>Methods &amp; Expertise</h2>
+    <p class="sub">I am trained in experimental and quantitative consumer research — including doctoral coursework in experimental methods (VHB ProDok), experimental research design (GSERM), experimental economics and applied choice analysis — with a grounding in social and consumer psychology and complementary qualitative skills.</p>
+
+    <div class="skills">
+      <div class="card">
+        <h3>Experimental methods</h3>
+        <ul>
+          <li>Online, lab and field experiments</li>
+          <li>Social comparison &amp; norm manipulations</li>
+          <li>Behavioural choice measures</li>
+          <li>Choice experiments (Sawtooth)</li>
+          <li>A priori power analysis (G*Power)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Quantitative analysis</h3>
+        <ul>
+          <li>Structural equation modelling (Mplus, lavaan)</li>
+          <li>Moderation &amp; mediation (PROCESS)</li>
+          <li>Applied choice analysis</li>
+          <li>ANCOVA, regression, effect sizes</li>
+          <li>R, SPSS, Stata</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Qualitative &amp; survey design</h3>
+        <ul>
+          <li>In-depth interviews &amp; focus groups</li>
+          <li>Qualitative coding (MAXQDA)</li>
+          <li>Survey development (Qualtrics, Prolific)</li>
+          <li>Wearable data collection</li>
+          <li>GDPR-compliant study materials</li>
+        </ul>
+      </div>
+      <div class="card" style="grid-column:1/-1">
+        <h3>Theoretical background in (social) psychology</h3>
+        <p style="margin:0">Social norms &amp; social comparison theory · Theory of Planned Behaviour · Comprehensive Action Determination Model · VIA character strengths (temperance) · Self-efficacy, response efficacy &amp; perceived consumer effectiveness · Goal pursuit · Grounded Cognition Theory of Desire · Anti- and reduced consumption · SHIFT framework</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <h2>Publications &amp; Talks</h2>
+    <p class="sub">See also my <a href="https://scholar.google.de/citations?hl=de&amp;user=YEidWJoAAAAJ">Google Scholar</a> and <a href="https://orcid.org/0009-0006-2836-2953">ORCID</a> profiles.</p>
+
+    <h3 class="group">Peer-reviewed journal articles</h3>
+    <ul class="pubs">
+      <li><strong>Moirano, D.</strong>, &amp; Koenigstorfer, J. (2025). Explaining the adoption of sustainable diets and healthy diets among German consumers via an extended comprehensive action determination model. <em>Food Quality and Preference, 129</em>, 105526. <a href="https://doi.org/10.1016/j.foodqual.2025.105526">doi:10.1016/j.foodqual.2025.105526</a></li>
+    </ul>
+
+    <h3 class="group">Under review</h3>
+    <ul class="pubs">
+      <li><span class="status">In revision</span><strong>Moirano, D.</strong>, &amp; Koenigstorfer, J. The role of green values for consumers' tendency to reduce consumption after upward social comparison. <em>Journal of Consumer Behaviour</em>.</li>
+      <li><span class="status">Under review</span>Knauß, J., Bidler, M., <strong>Moirano, D.</strong>, &amp; Ullrich, S. When personal data serves the common good: Understanding consumer data disclosure for pro-environmental business models. <em>Business Strategy and the Environment</em>.</li>
+    </ul>
+
+    <h3 class="group">Conference proceedings</h3>
+    <ul class="pubs">
+      <li><strong>Moirano, D.</strong>, &amp; Koenigstorfer, J. (2024). Feeding change: Explaining the adoption of sustainable healthy diets. <em>Proceedings of the International Food Marketing Research Symposium</em>, Tromsø, Norway.</li>
+    </ul>
+
+    <h3 class="group">Conference presentations</h3>
+    <ul class="pubs">
+      <li>“Sustainable Food Choices: The Power of Social Norms.” <span class="talk">Jahrestagung Konsum &amp; Verhalten, Alpen-Adria-Universität Klagenfurt, Austria, Sep 2024.</span></li>
+      <li>“Feeding Change: Explaining the Adoption of Sustainable Healthy Diets.” <span class="talk">International Food Marketing Research Symposium, UiT – The Arctic University of Norway, Tromsø, Jun 2024. <a href="https://mgmt.au.dk/fileadmin/MGMT/Subsites/Centre/Mapp/IFMRS_Program_2024.pdf">Conference programme (PDF)</a></span></li>
+      <li>“Feeding Change: Explaining the Adoption of Sustainable Healthy Diets.” <span class="talk">Workshop on Green Choice and Sustainable Consumption, Universität Innsbruck, Austria, Jun 2024.</span></li>
+      <li>“Sustainable Healthy Diets in Germany: Application of the CADM.” <span class="talk">Jahrestagung Konsum &amp; Verhalten, Humboldt-Universität zu Berlin, Germany, Sep 2023.</span></li>
+    </ul>
+  </section>
+
+  <!-- TEACHING -->
+  <section id="teaching">
+    <h2>Teaching &amp; Supervision</h2>
+    <p class="sub">I teach at the TUM School of Management and the TUM School of Medicine and Health, in English, at bachelor's level.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Courses</h3>
+        <p><strong>Sponsorship-linked Marketing</strong> (4 SWS)<br><span class="meta">Co-instructor · approx. 300 students · WS 2023/24, SS 2024, WS 2025/26, WS 2026/27</span></p>
+        <p><strong>Consumer Behavior in Health Care</strong> (3 SWS)<br><span class="meta">Course instructor · approx. 30 students · WS 2023/24, WS 2025/26</span></p>
+        <p style="margin:0"><strong>Internship Seminar</strong> (2 SWS)<br><span class="meta">Course instructor · approx. 30 students · SS 2024</span></p>
+      </div>
+      <div class="card">
+        <h3>Supervision &amp; mentoring</h3>
+        <p>Supervised 4 bachelor's theses, 6 master's theses and 4 project studies since 2023.</p>
+        <p>Mentor in the TUMPrep programme, supervising two students from the US and Canada on a research project at the chair.</p>
+        <p style="margin:0">International Tutor at TUM (2019–2022).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTREACH -->
+  <section id="outreach">
+    <h2>Science Communication</h2>
+    <div class="outreach">
+      <div>
+        <p class="eyebrow">Soapbox Science Munich · 2025</p>
+        <blockquote>The Taste of Influence: Norms and Sustainable Eating Behaviour</blockquote>
+        <p>Soapbox Science brings researchers onto the street — literally onto a soapbox — to talk with passers-by about their work. In central Munich, I explained how social norms shape what we eat, and what that means for moving towards more sustainable diets.</p>
+        <p style="margin:0">I am also a member of the Expert Circle of the <strong>Nutrition Hub</strong> (since 2024).</p>
+      </div>
+      <div class="gallery">
+        <img src="assets/soapbox-1.jpg" alt="Daniela Moirano on the soapbox at Soapbox Science Munich" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2>Education &amp; Experience</h2>
+    <p class="sub">The full version is in my <a href="assets/CV_Daniela_Moirano.pdf">CV (PDF)</a>.</p>
+    <ul class="timeline">
+      <li><span class="when">since 2023</span>
+        <div><strong>Doctoral Candidate (Dr. rer. pol.) &amp; Research Associate</strong>Chair of Sport and Health Management, TUM · Supervisor: Prof. Dr. Jörg Koenigstorfer
+        <span class="note">Design and execution of empirical studies, publication and conference work, contribution to an EU-funded research project, teaching and supervision.</span></div></li>
+      <li><span class="when">Jan – May 2026</span>
+        <div><strong>Visiting PhD Student</strong>Low Harm Hedonism Initiative, The University of Queensland, Brisbane · Hosts: Prof. Sara Dolnicar, Dr. David Fechner
+        <span class="note">Funded by an Exchange@UQ Grant and the TUM School of Management internationalisation fund.</span></div></li>
+      <li><span class="when">2022 – 2023</span>
+        <div><strong>Junior Consultant, Consumer Panel</strong>GfK (now NielsenIQ)
+        <span class="note">Consumer insights on fresh food categories for FMCG and food-retail clients across European markets.</span></div></li>
+      <li><span class="when">2019 – 2022</span>
+        <div><strong>M.Sc. Management</strong>Technical University of Munich
+        <span class="note">Thesis: “Plant-based, Insect-based, or Cultured Meat? The Acceptance of Alternative Proteins in the Bavarian Population.”</span></div></li>
+      <li><span class="when">2016 – 2019</span>
+        <div><strong>B.Sc. Health Sciences</strong>Technical University of Munich · exchange semester at Universidad Católica de Valencia, Spain
+        <span class="note">Thesis on physical activity in children and adolescents measured with wrist-worn wearables.</span></div></li>
+    </ul>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+      <p class="sub" style="margin:0">I am currently looking for a postdoctoral position in consumer psychology (sustainability-related), social psychology and behaviour change — in Europe and internationally. I'd be glad to hear from you.</p>
+      <ul>
+        <li><span>Email</span> <a href="mailto:daniela.moirano@gmail.com">daniela.moirano@gmail.com</a></li>
+        <li><span>Google Scholar</span> <a href="https://scholar.google.de/citations?hl=de&amp;user=YEidWJoAAAAJ">Profile</a></li>
+        <li><span>ORCID</span> <a href="https://orcid.org/0009-0006-2836-2953">0009-0006-2836-2953</a></li>
+        <li><span>LinkedIn</span> <a href="https://www.linkedin.com/in/daniela-moirano/">daniela-moirano</a></li>
+        <li><span>Languages</span> German · English · French · Spanish</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">© <span id="yr">2026</span> Daniela Moirano · Technical University of Munich</div>
+</footer>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
